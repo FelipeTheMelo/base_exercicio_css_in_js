@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-interface FormVagasProps {
+interface FormProps {
     addVaga: (novaVaga: string) => void;
 }
 
-const FormVagas: React.FC<FormVagasProps> = ({ addVaga }) => {
+const Form: React.FC<FormProps> = ({ addVaga }) => {
     const [novaVaga, setNovaVaga] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!novaVaga.trim()) return;
     addVaga(novaVaga);
@@ -26,4 +26,4 @@ return (
 );
 };
 
-export default FormVagas;
+export default Form;

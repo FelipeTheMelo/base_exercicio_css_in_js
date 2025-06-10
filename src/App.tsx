@@ -1,19 +1,24 @@
-import Header from './components/Cabecalho'
-import Hero from './components/Hero'
-import ListaVagas from './containers/ListaVagas'
+import React, { useState } from "react";
+import Header from "./components/header";
+import Hero from "./components/Hero";
+import ListaVagas from "./components/ListaVagas";
+import FormVagas from "./components/FormVagas";
 
-import './global.css'
+const App = () => {
+  const [vagas, setVagas] = useState<string[]>([]);
 
-function App() {
+  const addVaga = (novaVaga: string) => {
+    setVagas((prevVagas) => [...prevVagas, novaVaga]);
+  };
+
   return (
     <>
       <Header />
       <Hero />
-      <div className="container">
-        <ListaVagas />
-      </div>
+      <FormVagas addVaga={addVaga} />
+      <ListaVagas vagas={vagas} onDelete={undefined} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
