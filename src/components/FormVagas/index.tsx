@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import { useState } from 'react'
 
-interface FormVagasProps {
-    addVaga: (novaVaga: string) => void;
+type FormVagasProps = {
+    aoEnviar?: (vaga: string) => void
+    aoPesquisar?: (termo: string) => void
 }
 
-const FormVagas: React.FC<FormVagasProps> = ({ addVaga }) => {
-    const [novaVaga, setNovaVaga] = useState("");
+const FormVagas = ({ aoEnviar, aoPesquisar }: FormVagasProps) => {
+const [input, setInput] = useState('')
 
-    const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!novaVaga.trim()) return;
-    addVaga(novaVaga);
-    setNovaVaga("");
-};
+const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (aoPesquisar) {
+        aoPesquisar(input)
+    } else if (aoEnviar) {
+        aoEnviar(input)
+        setInput('')
+    }
+}
 
 return (
     <form onSubmit={handleSubmit}>
-        <input
+    <input
         type="text"
-        placeholder="Digite o nome da vaga"
-        value={novaVaga}
-        onChange={(e) => setNovaVaga(e.target.value)}/>
-        <button type="submit">Adicionar vaga</button>
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder={aoPesquisar ? 'Pesquisar vaga' : 'Digite uma nova vaga'}
+    />
+    <button type="submit">{aoPesquisar ? 'Pesquisar' : 'Adicionar'}</button>
     </form>
-);
-};
+)}
 
-export default FormVagas;
+export default FormVagas
