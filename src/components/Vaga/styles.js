@@ -1,22 +1,22 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Card = styled.div`
-    background: white;
-    border: 1px solid #ddd;
+    background-color: #fff;
     padding: 16px;
-    margin: 10px 0;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-`;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 16px;
+`
 
-export const JobTitle = styled.span`
-    font-weight: bold;
-`;
+export const Titulo = styled.h3`
+    margin-bottom: 8px;
+`
 
-export const DeleteButton = styled.button`
-    background: transparent;
-    border: none;
-    color: #e74c3c;
-    cursor: pointer;
-`;
+export const Local = styled.p`
+    font-style: italic;
+    margin-bottom: 8px;
+`
+
+export const Descricao = styled.p`
+    color: #666;
+`

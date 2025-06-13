@@ -1,10 +1,11 @@
-import React from "react";
-import { StyledHeader, Title } from "./styles";
+import React from 'react'
+import { StyledHeader, Title } from './styles'
 
-export default function Header() {
+const Header = () => {
     return (
     <StyledHeader>
-        <Title>Nome do Projeto / Seu Nome</Title>
+        <Title>Plataforma de Vagas</Title>
     </StyledHeader>
-    );
-}
+)}
+
+export default Header

@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import Header from "./components/header";
-import Hero from "./components/Hero";
-import ListaVagas from "./components/ListaVagas";
-import FormVagas from "./components/FormVagas";
+import Cabecalho from './components/Cabecalho'
+import Hero from './components/Hero'
+import Formulario from './components/Formulario'
+import ListaVagas from './ListaVagas'
 
-const App = () => {
-  const [vagas, setVagas] = useState<string[]>([]);
+import { ThemeProvider } from 'styled-components'
+import { theme } from './styles/theme'
+import { GlobalStyle } from './styles/GlobalStyle'
 
-  const addVaga = (novaVaga: string) => {
-    setVagas((prevVagas) => [...prevVagas, novaVaga]);
-  };
-
+function App() {
   return (
-    <>
-      <Header />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Cabecalho />
       <Hero />
-      <FormVagas addVaga={addVaga} />
-      <ListaVagas vagas={vagas} onDelete={undefined} />
-    </>
-  );
-};
+      <Formulario />
+      <ListaVagas />
+    </ThemeProvider>
+  )
+}
 
-export default App;
+export default App
