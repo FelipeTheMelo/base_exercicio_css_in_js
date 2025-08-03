@@ -1,11 +1,11 @@
 import React from 'react'
-import * as S from './styles'
+import { HeroSection, HeroTitle, HeroSubtitle } from './index.styles'
 
-const Hero = () => (
-    <S.Container>
-    <S.Title>Encontre a vaga dos seus sonhos</S.Title>
-    <S.Subtitle>Use os filtros para refinar sua busca</S.Subtitle>
-    </S.Container>
-)
-
-export default Hero
+export default function Hero() {
+  return (
+    <HeroSection>
+      <HeroTitle>Bem-vindo ao meu site</HeroTitle>
+      <HeroSubtitle>Este é o herói da nossa aplicação</HeroSubtitle>
+    </HeroSection>
+  )
+}

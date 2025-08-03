@@ -1,11 +1,11 @@
-import React from 'react'
-import { StyledHeader, Title } from './styles'
+import styled from 'styled-components'
 
-const Header = () => {
-    return (
-    <StyledHeader>
-        <Title>Plataforma de Vagas</Title>
-    </StyledHeader>
-)}
+export const NavItem = styled.a`
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
 
-export default Header
+  &:hover {
+    text-decoration: underline;
+  }
+`

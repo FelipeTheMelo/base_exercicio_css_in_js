@@ -1,10 +1,10 @@
 import React from 'react'
-import * as S from './styles'
+import { Container, Title } from './index.styles'
 
-const Cabecalho = () => (
-  <S.Header>
-    <S.Titulo>Lista de Vagas</S.Titulo>
-  </S.Header>
-)
-
-export default Cabecalho
+export default function Cabecalho() {
+  return (
+    <Container>
+      <Title>Meu Site</Title>
+    </Container>
+  )
+}

@@ -1,11 +1,12 @@
 import React from 'react'
-import * as S from './styles'
+import { FormContainer, Input, Button } from './index.styles'
 
-const Formulario = () => (
-    <S.Form>
-    <S.Input type="text" placeholder="Digite o título da vaga" />
-    <S.Button>Pesquisar</S.Button>
-    </S.Form>
-)
-
-export default Formulario
+export default function Formulario() {
+  return (
+    <FormContainer>
+      <Input type="text" placeholder="Digite seu nome" />
+      <Input type="email" placeholder="Digite seu email" />
+      <Button>Enviar</Button>
+    </FormContainer>
+  )
+}
