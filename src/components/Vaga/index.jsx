@@ -1,12 +1,11 @@
 import React from 'react'
-import * as S from './styles'
+import { VagaContainer, Titulo, Descricao } from './index.styles'
 
-const Vaga = ({ titulo, local, descricao }) => (
-  <S.Card>
-    <S.Titulo>{titulo}</S.Titulo>
-    <S.Local>{local}</S.Local>
-    <S.Descricao>{descricao}</S.Descricao>
-  </S.Card>
-)
-
-export default Vaga
+export default function Vaga({ titulo, descricao }) {
+  return (
+    <VagaContainer>
+      <Titulo>{titulo}</Titulo>
+      <Descricao>{descricao}</Descricao>
+    </VagaContainer>
+  )
+}
