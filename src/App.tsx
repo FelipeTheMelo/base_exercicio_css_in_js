@@ -1,29 +1,39 @@
-import Cabecalho from './components/Cabecalho'
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from './components/Cabecalho'
 import Hero from './components/Hero'
-import Formulario from './components/Formulario'
-import ListaVagas from './components/ListaVagas'
-
-import { ThemeProvider } from 'styled-components'
-import { theme } from './styles/theme'
+import ListaVagas from './containers/ListaVagas'
 import { GlobalStyle } from './styles/GlobalStyle'
+import Index from "./pages/index";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  // Lista de vagas que será exibida no componente ListaVagas
-  const vagas = [
-    { titulo: 'Desenvolvedor Frontend', descricao: 'React, CSS, JavaScript' },
-    { titulo: 'Designer UI/UX', descricao: 'Figma, Adobe XD, Design System' },
-    { titulo: 'QA Tester', descricao: 'Testes automatizados e manuais' }
-  ]
+const queryClient = new QueryClient();
 
-  return (
-    <ThemeProvider theme={theme}>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
       <GlobalStyle />
-      <Cabecalho />
-      <Hero />
-      <Formulario />
-      <ListaVagas vagas={vagas} />
-    </ThemeProvider>
-  )
-}
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <Hero />
+              <ListaVagas titulo={""} localizacao={""} nivel={""} modalidade={""} salarioMin={0} salarioMax={0} requisitos={[]} />
+            </>
+          } />
+          <Route path="/template" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
-export default App
+export default App;
