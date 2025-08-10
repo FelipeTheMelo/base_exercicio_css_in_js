@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const VagaContainer = styled.li`
@@ -28,7 +29,7 @@ const VagaTitulo = styled.h3`
 
 const VagaDetalhes = styled.ul`
   margin-bottom: 16px;
-  
+
   li {
     margin-bottom: 8px;
     color: inherit;
@@ -71,21 +72,27 @@ type Props = {
   requisitos: string[]
 }
 
-const Vaga = (props: Props) => (
+const Vaga: React.FC<Props> = ({
+  titulo,
+  localizacao,
+  nivel,
+  modalidade,
+  salarioMin,
+  salarioMax,
+  requisitos,
+}) => (
   <VagaContainer>
-    <VagaTitulo>{props.titulo}</VagaTitulo>
+    <VagaTitulo>{titulo}</VagaTitulo>
     <VagaDetalhes>
-      <li>Localização: {props.localizacao}</li>
-      <li>Senioridade: {props.nivel}</li>
-      <li>Tipo de contratação: {props.modalidade}</li>
+      <li>Localização: {localizacao}</li>
+      <li>Senioridade: {nivel}</li>
+      <li>Tipo de contratação: {modalidade}</li>
       <li>
-        Salário: {props.salarioMin} - {props.salarioMax}
+        Salário: {salarioMin} - {salarioMax}
       </li>
-      <li>Requisitos: {props.requisitos.join(', ')}</li>
+      <li>Requisitos: {requisitos.join(', ')}</li>
     </VagaDetalhes>
-    <VagaLink href="#">
-      Ver detalhes e candidatar-se
-    </VagaLink>
+    <VagaLink href="#">Ver detalhes e candidatar-se</VagaLink>
   </VagaContainer>
 )
 

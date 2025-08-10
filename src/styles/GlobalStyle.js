@@ -1,25 +1,55 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
+  /* Seu CSS global aqui */
+
+  *, *::before, *::after {
     box-sizing: border-box;
-    font-family: Lato, sans-serif;
-    list-style: none;
-    }
+    border: 0 solid #e5e7eb;
+  }
 
-    body {
-    padding-bottom: 120px;
-    }
-`
+  * {
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: hsl(var(--muted-foreground));
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-color: hsl(var(--border));
+  }
 
-export const Container = styled.div`
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
+  body {
+    margin: 0;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    line-height: inherit;
+    font-family: var(--font-camera-plain), Camera Plain Variable, ui-sans-serif, system-ui, sans-serif;
+  }
 
-    @media (max-width: 1024px) {
-    max-width: 80%;
-    }
-`
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track);
+    border-radius: 9999px;
+  }
+
+  /* Defina as variáveis de cor */
+
+  :root {
+    --background: 45 40% 98%;
+    --foreground: 0 0% 11%;
+    --border: 45 17% 91%;
+    --muted-foreground: 60 1% 37%;
+    /* ... outras variáveis que você tiver */
+  }
+
+  /* Outras regras globais que você quiser */
+`;
